@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/message")
 public class MessageController {
 
     public static final String BE_SUCCESS_MESSAGE = "BE works ";
@@ -20,7 +19,7 @@ public class MessageController {
     @Autowired
     MessageRepository repo;
 
-    @GetMapping
+    @GetMapping(value = "/")
     public String helloWorld() {
         StringBuilder result = new StringBuilder(BE_SUCCESS_MESSAGE);
 
@@ -36,7 +35,7 @@ public class MessageController {
         return result.toString();
     }
 
-    @GetMapping(value = "/{message}")
+    @GetMapping(value = "/message/{message}")
     public void saveMessage(@PathVariable String message) {
         repo.save(new Message(message));
     }
