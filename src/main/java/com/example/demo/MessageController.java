@@ -20,7 +20,7 @@ public class MessageController {
     MessageRepository repo;
 
     @GetMapping(value = "/")
-    public String helloWorld() {
+    public String getMessages() {
         StringBuilder result = new StringBuilder(BE_SUCCESS_MESSAGE);
 
         try {
